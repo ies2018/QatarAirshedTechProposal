@@ -1,0 +1,181 @@
+\RequirePackage[hyphens]{url}
+\documentclass[
+12pt, % The default document font size, options: 10pt, 11pt, 12pt
+oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+% consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{MastersDoctoralThesis} % The class file specifying the document structure
+%TC:endignore
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{mathpazo} % Use the Palatino font by default
+%\usepackage[backend=biber,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style 
+\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex}
+%\addbibresource{qpgaptechprop.bib}
+\usepackage{pdfpages}
+\usepackage{xcolor}
+\usepackage{lineno}
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+\usepackage[titletoc]{appendix}
+\usepackage{float} %% for table placements
+\usepackage{pdflscape} %%% to rotate tables and stuff
+\usepackage{url}
+\usepackage{enumerate}
+\usepackage{rotating}
+%\usepackage{draftwatermark}  %%%%%%%%%%%% Turn off for final version
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=3.8cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	REPORT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{Technical Proposal for Consultancy Services for Airshed Management Studies at Mesaieed and Dukhan and Odour Study at RLIC} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\author{Qatar Design Consortium} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{Doha, Qatar} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+\university{{}} % Your university's name and URL, this is used in the title page 
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+%\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
+
+%-------------------------------BEGIN DOCUMENT ---------------------------------------------
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+%\vspace*{.02\textheight}
+%{\scshape\LARGE \univname\par} % University name 
+\begin{center}
+\includegraphics[width=\linewidth,keepaspectratio]{images/cover.png} % department logo - uncomment to place it
+\end{center}
+%\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+%\emph{Prepared by:}\\
+%{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+%\begin{minipage}[t]{0.4\textwidth}
+%\begin{flushright} \large
+
+%\end{flushright}
+%\end{minipage}\\[1cm]
+\huge Submitted to Qatar Petroleum
+\vfill
+\end{center}
+
+Document no.	:	E- 094- FP-094-2017 \\
+Version		:	02 \\
+Date of issue	:	01-05-2018
+Prepared	:  	GKM/KRJ/RAO/SSG/BF
+Checked	:	MKMC	
+Approved	: 	SRI	
+
+%Copyright \copyright 2018
+\end{titlepage}
+
+\cleardoublepage
+
+%----------------------------------------
+%   EXECUTIVE SUMMARY
+%----------------------------------------
+\include{reptfront}
+
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+\color{black}
+\tableofcontents % Prints the main table of contents
+\listoffigures % Prints the list of figures
+\listoftables % Prints the list of tables
+
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+
+\include{acronyms}
+
+
+%----------------------------------------------------------------------------------------
+%	REPORT CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% ---------------------------------------------
+%    MAIN CONTENT - Chapters
+% ----------------------------------------------
+
+
+%\begin{linenumbers} %turn off for final edits
+
+\include{1_introduction}
+\include{2_background}
+\include{3_natureofoperations}
+\include{4_approach}
+\include{5_stakeholders}
+\include{6_team}
+\include{7_experience}
+\include{8_airmodel}
+\include{9_scichem}
+\include{10_ive}
+\include{11_satellite}
+\include{12_deliverables}
+%\end{linenumbers} %turn off for final edit
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+%\printbibliography[heading=bibintoc]
+\clearpage
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	 APPENDICES
+%----------------------------------------------------------------------------------------
+%\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+\begin{appendices}
+%\include{app_survey}
+\end{appendices}
+
+
+\end{document}  

@@ -1,0 +1,40 @@
+\chapter{PROJECT APPRECIATION AND OVERALL STUDY APPROACH}
+
+As a part of the data collection for this study the Consultant will conduct on-site visits and surveys with the stakeholders to ensure gathering of necessary data and metadata to allow comprehensive analysis.   Typical data sets include feedstock consumption, emission calculations (if available), emission unit type and location, emission unit parameters, chemical compositions, and control technology (if present).  Where primary data sets are not available, engineering judgement will be used as well as best practices to estimate necessary parameters.  
+
+ %
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/approach.png} 
+\caption{Overall study approach.}
+\label{fig:approach}
+\end{figure}
+%
+
+Collected source parameters will be populated into an Air Quality Information Management System (AQMIS) developed by Lake Environmental. The AQMIS is a cloud-based air management solution that can perform multi-source modeling using CALPUFF and WRF generated prognostic meteorological weather data. WRF data will be generated up to 2,000 meters in order to provide the necessary wind fields at different altitudes needed by the dispersion model. Generated ground level wind data will be compared with measured ground level wind to calibrate the model as well estimate possible errors.\\
+
+Modeled results will be compared with measured ambient air concentrations and evaluated against the local and international air quality standards for normal, upset and emergency operating conditions. International standards will include WHO, EU and US National Ambient Air Quality Standards. \\
+
+The air quality dispersion modeling of all industrial emissions point sources shall be carried out for primary pollutants listed in Table \ref{tab:pollutants}. Existing data from recent EIAs and Quarterly EMP reports from major end-user industries will be made available before proceeding for data collection through site visits.
+
+\section{DISPERSION MODELING FOR PRIMARY POLLUTANTS }
+
+CALPUFF version 5.8.2 using 1 km x 1 km receptor grids at ground level will be used to model air dispersion. CALPUFF is a non-steady puff model that calculates complex wind fields typically found in coastal zones. Digitized local terrain and geophysical data will be incorporated into the process during the development of the CALMET model using the TERREL, CTGCOMP, CTGPROC and MAKEGEO pre-processors.  Digital terrain files downloaded from the Shuttle Radar Topography Mission (SRTM3) Global Coverage (~90m) Version 2 database and Global Land Cover Characteristics (GLCC) database maintained by the US Geological Survey (USGS) will provide necessary land use datasets.  Coastline features will be further processed using shoreline data from the Global Self-consistent, Hierarchical, High-resolution Shoreline Database (GSHHS) provided by NOAA's National Centers for Environmental Information.  Default values will be used for other settings unless local conditions suggest otherwise.\\
+
+The CALPUFF model is embedded within the AQMIS database, allowing wide-area simulations that aggregate multiple sources and weather patterns. The cloud-based resources of Lakes Environmental allows rapid calculations and easy scenario evaluations. Once the sources are captured with a data template, changing or updating parameters for different scenario runs is easy.
+
+Lakes Environmental’s AQMIS is a complete web-based air management tool that integrates emission inventorying with dispersion modelling and human health risk assessments. AQMIS utilizes the individual source parameters used to calculate annual emissions inventories as input into US EPA approved dispersion models (CALPUFF) to generate multi-source results that no other software can provide. 
+
+\section{DISPERSION MODELING FOR OZONE}
+
+Ozone modeling requires identification and quantification of precursors outside of the study area due to wind movements and lag caused by photochemical transformations. The  SCICHEM-3 model is a Lagrangian photochemical puff model developed by the Electric Power Research Institute (EPRI) for near-source and long-range transport applications.  Collection of pre-cursors from different locations outside of Qatar will be accomplished using literature reviews and satellite imagery to confirm possible source locations.
+
+\section{EVALUATION OF AMBIENT AIR QUALITY MONITORING STATION}
+Historical data from ambient air quality monitoring stations (AAQMS) will be reviewed for trends and adequacy of coverage. As part of the Study, the Consultant will identify hot spots of anticipated high concentrations based on source modeling to optimize the location and number of AAQMS. The Consultant shall optimize the number and location of AAQMS by taking into consideration the following:
+
+\begin{itemize}
+\item Odour emissions from Oil and Gas, petrochemical and other industries in Qatar. 
+\item Wind patterns and other meteorological events that impact dispersion of gases and aerosols
+\item Location of key receptors
+\end{itemize}
+

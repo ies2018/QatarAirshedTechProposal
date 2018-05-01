@@ -1,0 +1,132 @@
+\chapter{PROPOSED METHODOLOGY - CALPUFF AIR DISPERSION MODEL}
+
+\section{CALPUFF MODEL DESCRIPTION}
+This section presents the ambient air quality modeling methodology to be used for demonstration compliance with the applicable QAAQS and international standards. The modeling techniques to be employed would be consistent with the current U.S.EPA modeling procedures. The model uses processed input data to run various algorithms to estimate the dispersion of pollutants between the source and receptor. The model output is in the form of a predicted time-averaged concentration at the receptor. These predicted concentrations are added to suitable background concentrations and compared with the relevant ambient air quality standard or guideline. The air dispersion modeling approach is presented in Figure \ref{fig:calpuff}. 
+
+ %
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/calpuff.png} 
+\caption{Air dispersion modeling approach.}
+\label{fig:calpuff}
+\end{figure}
+%
+CALPUFF is a multi-layer, multi-species non-steady-state puff dispersion model that simulates the effects of time- and space-varying meteorological conditions on pollution transport, transformation, and removal.  CALPUFF can be applied on scales of tens to hundreds of kilometers.  It includes algorithms for sub grid scale effects (such as terrain impingement), as well as, longer range effects (such as pollutant removal due to wet scavenging and dry deposition, chemical transformation, and visibility effects of particulate matter concentrations). CALPUFF is a non‐steady state Lagrangian Gaussian puff long‐range transport model that includes algorithms for chemical transformations and wet/dry deposition.  It accounts for spatial changes in the CALMET produced meteorological fields, variability in surface conditions (elevation, surface roughness, vegetation type, etc.), chemical transformation, wet removal due to rain and snow, dry deposition, and terrain influences on plume interaction with the surface. CALPUFF has the ability to treat calm wind conditions, stagnation, recirculation, plume fumigation, spatial in-homogeneities, causality effects, and multiple hour emissions accumulations. 
+
+CALMET is a meteorological pre-processor for CALPUFF that produces three‐dimensional wind and temperature fields and two-dimensional fields of other meteorological parameters. Vertical wind levels with at least 10 cell face heights at lowest level at 20 m, 40 m, 80 m, 160 m, 320 m, 640 m, 1200 m, 2000 m, 3000 m, \& 4000 m above ground level (AGL) will be processed. 
+
+CALPOST is the post‐processor for CALPUFF. CALPOST model version 6.221 will be used to calculate the concentration results for comparison to the modeling significance levels and the deposition flux. 
+
+\subsection{GEOPHYSICAL DATA}
+Geophysical data such as terrain and land use is a necessary input to the CALMET model.  The geophysical data will be downloaded from Eurasia Land Cover Characteristics Data Base (Optimized for Asia ~ 1km) and will be provided for visualization purpose in the GEO.DAT format.
+\subsection{TERRAIN DATA}
+Terrain data for visualization purposes will be obtained from the Shuttle Radar Topographic Mission 3 (STRM3), with a grid resolution of approximately 90 m.
+
+\subsection{LAND USE}
+QDC will obtain Land Use data for processing and visualization purposes.
+
+\subsection{METEOROLOGICAL DATA}
+The WRF dataset incorporates meteorological data for the CALMET model to process. The hourly gridded meteorological data is produced by WRF model on a 12-km resolution nested grid to define the initial estimate of the wind fields. The meteorological and dispersion modeling simulations (CALPUFF and SCICHEM) will be conducted over a full ten years ranging from 2005 to 2015. QP will provide WRF data from 2004 to 2014.\\
+
+Surface properties such as albedo, Bowen ratio, roughness length, soil heat flux, and leaf area index will be computed proportionally to the fractional land use within each grid cell correlation between Land-Use categories used for mapping in CALMET/CALPUFF system and default categories.\\
+
+The following technical considerations made the capabilities of a non-steady-state modeling system important for this air quality modeling analysis: 
+
+\begin{itemize}
+\item The importance of Meso-scale circulations (sea-land breeze systems).
+\item The importance of light wind speed and calm wind effects.
+\item The potential importance of stagnation, plume recirculation, and plume fumigation.
+\item The significant anthropogenic heat fluxes associated with large urban areas and industrial facilities producing local special variability in the dispersion characteristics.
+\item The potential effects of causality and multiple hour emission at some receptors of interest.
+\end{itemize}
+
+\subsection{BUILDING DOWNWASH EFFECTS}
+Buildings located close to point sources may significantly affect the dispersion of the pollutants from the source. If the point source is at lower heights, the air pollutants released may be trapped in the wake zone of nearby obstructions (structures or terrain features) and may be brought down to ground level in the immediate vicinity of the release point (down-wash). It is, necessary to determine if such effects are present for each point source. \\
+
+A "Good Engineering Practice" (GEP) height is defined as the height necessary to ensure that point source emissions do not result in excessive pollutant concentrations near the source. These excessive concentrations may be the result of atmospheric downwash, eddies, or wakes that may be created by the source, nearby structures, or nearby terrain obstacles. If a point source is below the GEP height, then the plume entrainment must be taken into account by modifying certain dispersion parameters used in the dispersion model. However, if the point source height meets GEP, then entrainment within the wake of nearby obstructions is unlikely and need not be considered in the modeling.
+The GEP height formula is given as
+
+\begin{equation}
+H_{g} = H + 1.5*L 
+\end{equation}
+
+\noindent
+where H$_{g}$ is the GEP height measured from ground level elevation at the base of the point source, H is the height of nearby structure(s) measured from the ground level elevation at the base of the point source, and L is the lesser dimension, height or projected width, of the nearby structure(s). \\
+
+A building or structure is considered sufficiently close to a point source to cause wake effects when the minimum distance between the point source and the building is less than or equal to five times the lesser of the height or projected width of the building (5L). This distance is commonly referred to as the building's "region of influence." If the source is located near to more than one building, each building and point source configuration would have to be assessed separately. If a building's projected width is used to determine 5L, then the apparent width of the building must be determined. The apparent width is the width as seen from the source looking toward either the wind direction or the direction of interest. For example, if the CALPUFF model requires the apparent building widths (and also heights) for every 10 degrees of azimuth around each source. The model also contains algorithms for determining the impact of downwash on ambient concentration and was used for determining predicted maximum estimates.\\
+
+The dimensions of the various buildings (and process facilities), as well as the parameters for the various point sources, will be entered into the Building Profile Input Program (BPIP) to generate the necessary building heights and widths. The USEPA BPIP was designed to incorporate the concepts and procedures expressed in the GEP technical support document (EPA, 1985), the Building Downwash guidance (Tikvart 1988, Tikvart 1989, and Lee 1993), and other related documents into a program that correctly calculates building heights (BHs) and projected building widths (PBWs). The BPIP model is divided into two parts.\\
+
+Part one (based on the GEP technical support document) is designed to determine whether or not a stack is subject to wake effects from a structure or structures. Values are calculated for GEP stack height and GEP-related BHs and PBWs. An indication is given to which stacks are being affected by which structure wake effect. Part two calculates building downwash BHs and PBWs values based on references Tikvart, 1988, Tikvart 1989, and Lee 1993, which can be different from those calculated in part one. Part two only performs the calculations if structure wake effects are influencing a particular stack.\\
+
+\section{MODELING DOMAIN AND GRID SELECTION}
+Domain size and grid parameters will be based on the following:
+\begin{itemize}
+\item WRF Domain I (Outer domain): 480 km X 480 km
+\item WRF Domain II (Inner domain): 240 km X 240 km
+\item CALMET (meteorological domain): 120 km X 216 km
+\item CALPUFF (computational domain \& sampling grid): 120 km X 216 km
+\item 4 km x 4 km grid spacing for wind fields up to 2,000 meters
+\end{itemize}
+
+ %
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/domain.png} 
+\caption{Study area and domain of meteorological processing.}
+\label{fig:domain}
+\end{figure}
+%
+
+\section{SPACING OF THE RECEPTORS}
+A nested Cartesian receptor grid as below will be followed:
+
+\begin{itemize}
+\item Within Industrial Cities (MIC, Dukhan) and immediate municipalities: 200m spacing – for high resolution receptors infield, near field and high population areas.
+\item Nested Cartesian receptors grid for High population areas with 200 m spacing.
+\item 3000 m in other areas of Qatar – coarse resolution to capture less populated areas.
+\item Discrete receptors shall be located at the ambient monitoring locations airshed, so that ambient air quality measured at these stations could be compared with modeled results.
+\item Discrete receptors shall be located at sensitive receptors (School, Mosque, Commercial complexes, Sports grounds etc.) airshed, so that ambient air quality measured at these stations could be compared with modeled results.
+\end{itemize}
+
+An ambient air capacity study analysis will be carried out for the emission sources at the MIC, Dukhan and Doha industrial area to evaluate the air quality impact on the regional airshed and identified potential receptors. Modeled results of this phase shall be evaluated against the local and international air quality standards for normal, upset and emergency operating conditions. The analysis will be conducted to determine 1st rank and 2nd rank concentrations for following averaging periods:
+
+\begin{itemize}
+\item 1-Hour
+\item 3-Hours
+\item 24-Hours
+\item 8,760-Hours 
+\item Run Length (87,600-Hours)
+\end{itemize}
+
+Models to used for the ambient air capacity study:
+
+\begin{itemize}
+\item CALPUFF version 5.8.5  with CALMET version 5.8.5  and  CALPOST version 6.221  for general air and odour dispersion modeling
+\item SCICHEM version 3.0 or ozone formation and dispersion modeling
+\item IVE version 2.0 for mobile source emission estimates
+\end{itemize}
+
+\section{SOURCE INPUTS}
+
+%
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/site.png} 
+\caption{Data collection from sources and stakeholders.}
+\label{fig:data}
+\end{figure}
+%
+
+\subsection{MESAIEED INDUSTRIAL CITY}
+The air dispersion modeling analyses will evaluate NOx, SO$_{2}$, H$_{2}$S, HF, O$_{3}$, VOCs, PM$_{2.5}$, and PM$_{10}$ emissions from multiple sources associated with MIC and QP operations.  All combustion source, mobile sources and regional sources will be considered. In addition, point, area and volume sources including fugitive emissions inventories, will be prepared for normal operation scenario, abnormal and worst-case scenarios. Realistic scenarios will be defined with the assistance of QP staff prior to modeling.\\
+
+Scenarios with possible future sources of pollution up to five years from the study will also be inventoried and put into the model.
+
+\subsection{DUKHAN INDUSTRIAL CITY}
+Dukhan Industrial City: Ambient air carrying capacity study in Dukhan will be undertaken by performing air quality dispersion modeling of all industrial emissions point sources for NOx, SO$_{2}$, H$_{2}$S, O$_{3}$, and VOCs. All point sources from flares and heater stacks of various plants in Dukhan Operations shall be included for air quality modeling.  All combustion source, mobile sources and regional sources will be considered. In addition, point, line, area and volume sources including fugitive emissions inventory will be prepared for normal operation scenario, abnormal and worst-case scenarios. Realistic scenarios will be defined with the assistance of QP staff prior to modeling.\\
+
+Scenarios with possible future sources of pollution up to five years from the study will also be inventoried and put into the model.
+
+
+
